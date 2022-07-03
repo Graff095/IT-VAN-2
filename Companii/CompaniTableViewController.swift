@@ -12,12 +12,21 @@ class CompaniTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.title = "компания"
+        
+        let networgServis = NetworgServis()
+        let urlString = "https://run.mocky.io/v3/1a1c6aa1-3629-4d1b-833f-55edece6bd3e" // создали сылку
+            networgServis.request(urlString: urlString) { tipDanyh, error in
+            tipDanyh?.companies.map({ compani in
+                print(compani.name)
+            })
     }
+        
+        
+    }
+    
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
