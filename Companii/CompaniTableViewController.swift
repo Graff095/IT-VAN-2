@@ -14,7 +14,7 @@ class CompaniTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "компания"
+        navigationItem.title = "Компании"
         
         
         let urlString = "https://run.mocky.io/v3/1a1c6aa1-3629-4d1b-833f-55edece6bd3e" // создали сылку

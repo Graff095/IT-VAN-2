@@ -29,13 +29,24 @@ class Spisi_okSotrudTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let spotrudnik = sotrudniki?.employees[indexPath.row]
+        let sotrudnik = sotrudniki?.employees[indexPath.row]
         
-        cell.textLabel?.text = spotrudnik?.name
+        cell.textLabel?.text = sotrudnik?.name
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SwovEmployee" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let employeeVC = segue.destination as! ViewController
+                let sotrudnik = sotrudniki?.employees[indexPath.row]
+                employeeVC.rabotnik = sotrudnik
+                    
+                
+            }
+        }
+    }
 }

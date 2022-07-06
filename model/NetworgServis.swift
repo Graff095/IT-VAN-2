@@ -35,4 +35,6 @@ class NetworgServis{
             
         }.resume() // что запустиь наш запрос
     }
+    
+    
 }
