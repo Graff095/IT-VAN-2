@@ -8,17 +8,20 @@
 import UIKit
 
 class Spisi_okSotrudTableViewController: UITableViewController {
-
+  
+    
+    
+    var sotrudniki:company? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //navigationItem.title = "Список сотрудников"
+        navigationItem.title = "Список сотрудников"
     }
 
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return sotrudniki?.employees.count ?? 0
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,7 +29,9 @@ class Spisi_okSotrudTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "2121"
+        let spotrudnik = sotrudniki?.employees[indexPath.row]
+        
+        cell.textLabel?.text = spotrudnik?.name
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

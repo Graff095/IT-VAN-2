@@ -24,6 +24,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="RLO-Xa-DRg" kind="show" identifier="SwovSpisok" id="Cfv-mx-WE6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -60,6 +63,7 @@
                             <outlet property="delegate" destination="RLO-Xa-DRg" id="U0F-Ey-Z3o"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="rng-Ng-AvE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPj-Xf-oEq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

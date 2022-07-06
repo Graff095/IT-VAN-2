@@ -8,13 +8,14 @@
 import Foundation
 
 class NetworgServis{
-    func request (urlString: String, completion: @escaping (tipDanyh?, Error?) -> Void) {
+    func request (urlString: String, completion: @escaping (Result<tipDanyh, Error>) -> Void) {
         guard let url = URL(string: urlString) else {return} // если ссылка подходить создали url
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     print(error)
-                    completion (nil, error)
+                    //completion (nil, error)
+                    completion(.failure(error))
                     return
                 } // если будет ощибка то ее разпечать
             }
@@ -23,11 +24,13 @@ class NetworgServis{
 //            print (josonString)
             do {
                 let compani = try JSONDecoder().decode(tipDanyh.self, from: data)
-               completion (compani, nil)
+               //completion (compani, nil)
+                completion(.success(compani))
                // print(tipDanyh.init(companies: ))
 }catch let jsonError {
     print ("Ощибка",jsonError)
-    completion (nil, jsonError)
+    //completion (nil, jsonError)
+    completion(.failure(jsonError))
 }
             
         }.resume() // что запустиь наш запрос

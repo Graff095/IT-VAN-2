@@ -19,6 +19,6 @@ struct company:Decodable {
 
 struct employee:Decodable  {
     let name: String
-    let phone_number : String
+    let phone_number: String
     let skills:[String]
 }
